@@ -9,8 +9,14 @@
 <body>
     <header>
         <h1>1-Day Tech Talk Event</h1>
-        <input type="text" id="categorySearch" placeholder="Search by category..." aria-label="Search by category">
-        <input type="text" id="speakerSearch" placeholder="Search by speaker..." aria-label="Search by speaker">
+        <div class="search-container">
+            <input type="text" id="categorySearch" placeholder="Search by category..." aria-label="Search by category">
+            <span class="clear-search" id="clearCategorySearch">&times;</span>
+        </div>
+        <div class="search-container">
+            <input type="text" id="speakerSearch" placeholder="Search by speaker..." aria-label="Search by speaker">
+            <span class="clear-search" id="clearSpeakerSearch">&times;</span>
+        </div>
     </header>
     <main id="schedule-container">
         <!-- Schedule will be dynamically loaded here -->
