@@ -6,7 +6,7 @@ This project is a simple, single-page web application designed to display the sc
 
 *   **Dynamic Schedule Display:** Automatically generates the event schedule, including talk timings, speaker details, and descriptions.
 *   **Automatic Time Calculation:** Handles 1-hour talk durations, 10-minute transitions between talks, and a 1-hour lunch break.
-*   **Category-based Search:** Allows users to filter talks instantly by typing keywords into a search bar.
+*   **Category and Speaker Search:** Allows users to filter talks instantly by typing keywords into a search bar for either category or speaker name.
 *   **Responsive Design:** Basic styling for readability on various devices.
 *   **Node.js Backend:** Serves static files and provides talk data via a simple API.
 
@@ -74,7 +74,7 @@ The talk schedule is defined in `data/talks.json`. You can edit this file to upd
 
 *   The **Node.js Express server** serves the static HTML, CSS, and JavaScript files from the `public/` directory.
 *   It also provides a `/api/talks` endpoint that reads `talks.json` and sends the talk data to the frontend.
-*   The **frontend JavaScript** (`script.js`) fetches this data, calculates the precise timings for each talk and breaks, renders the schedule dynamically, and handles the real-time category search functionality.
+*   The frontend JavaScript (`script.js`) fetches this data, calculates the precise timings for each talk and breaks, renders the schedule dynamically, and handles the real-time category and speaker search functionality.
 
 ## License
 

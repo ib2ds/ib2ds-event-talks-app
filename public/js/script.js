@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const scheduleContainer = document.getElementById('schedule-container');
     const categorySearchInput = document.getElementById('categorySearch');
+    const speakerSearchInput = document.getElementById('speakerSearch');
     let allTalks = [];
 
     const eventStartTime = 10 * 60; // 10:00 AM in minutes from midnight
@@ -71,13 +72,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    categorySearchInput.addEventListener('keyup', (event) => {
-        const searchTerm = event.target.value.toLowerCase();
-        const filteredTalks = allTalks.filter(talk =>
-            talk.category.some(cat => cat.toLowerCase().includes(searchTerm))
-        );
+    function filterAndRenderTalks() {
+        const categorySearchTerm = categorySearchInput.value.toLowerCase();
+        const speakerSearchTerm = speakerSearchInput.value.toLowerCase();
+
+        const filteredTalks = allTalks.filter(talk => {
+            const matchesCategory = talk.category.some(cat => cat.toLowerCase().includes(categorySearchTerm));
+            const matchesSpeaker = talk.speakers.some(speaker => speaker.toLowerCase().includes(speakerSearchTerm));
+            return matchesCategory && matchesSpeaker;
+        });
         renderSchedule(filteredTalks);
-    });
+    }
+
+    categorySearchInput.addEventListener('keyup', filterAndRenderTalks);
+    speakerSearchInput.addEventListener('keyup', filterAndRenderTalks);
 
     fetchTalks();
 });
